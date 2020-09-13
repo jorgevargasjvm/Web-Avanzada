@@ -8,6 +8,8 @@ public class CrudwaApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CrudwaApplication.class, args);
+        
+        
     }
 
 }
