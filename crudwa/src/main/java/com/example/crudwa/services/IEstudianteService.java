@@ -8,11 +8,11 @@ public interface IEstudianteService {
 	
 	public void createEstudiante(Estudiante estudiante);
 	
-	public Estudiante getEstudiante(Long matricula);
+	public Estudiante getEstudiante(Long id);
 	
-	public int updateEstudiante(Estudiante estudiante);
+	public void updateEstudiante(Estudiante estudiante);
 	
-	public void deleteEstudiante(Long matricula);
+	public void deleteEstudiante(Long id);
 
 	public List<Estudiante> findAll();
 	

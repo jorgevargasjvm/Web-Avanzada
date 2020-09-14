@@ -21,19 +21,17 @@ public class EstudianteService implements IEstudianteService {
 
 	@Override
 	public Estudiante getEstudiante(Long matricula) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.getOne(matricula);
 	}
 
 	@Override
-	public int updateEstudiante(Estudiante estudiante) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void updateEstudiante(Estudiante estudiante) {
+		repository.save(estudiante);
 	}
 
 	@Override
-	public void deleteEstudiante(Long matricula) {
-		repository.deleteById(matricula);
+	public void deleteEstudiante(Long id) {
+		repository.deleteById(id);
 	}
 
 	@Override

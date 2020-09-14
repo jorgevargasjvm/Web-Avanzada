@@ -23,15 +23,28 @@ public class MyController {
 		return "index";
 	}
 	
-	@PostMapping("/create")
+	@PostMapping("/estudiante/create")
 	public String create(Model model, @ModelAttribute("estudiante") Estudiante estudiante) {
 		service.createEstudiante(estudiante);
 		return "redirect:/";
 	}
 	
-	@GetMapping("/delete/{id}")
+	@GetMapping("/estudiante/delete/{id}")
 	public String delete(Model model, @PathVariable("id") Long id) {
 		service.deleteEstudiante(id);
+		return "redirect:/";
+	}
+	
+	@GetMapping("/estudiante/{id}/edit")
+	public String edit(Model model, @PathVariable("id") Long id) {
+		model.addAttribute("estudiante", service.getEstudiante(id));
+		return "edit";
+	}
+	
+	@PostMapping("/estudiante/{id}/update")
+	public String update(Model model, @PathVariable long id, @ModelAttribute("estudiante") Estudiante estudiante) {
+		estudiante.setId(id);
+		service.updateEstudiante(estudiante);
 		return "redirect:/";
 	}
 	

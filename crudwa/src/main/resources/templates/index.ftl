@@ -23,7 +23,7 @@
 	  <section class="text-center">
 	    <div class="container mt-3">
 	      
-		  <form class="form-inline" method="post" action="/create"> 
+		  <form class="form-inline" method="post" action="estudiante/create"> 
 			<label class="sr-only" for="matricula">Name</label>
 			<input type="text" class="form-control mb-2 mr-sm-2" id="matricula" name="matricula" placeholder="Ingresa la matricula" />
 			
@@ -43,6 +43,7 @@
 		<table class="table">
 		  <thead>
 		    <tr>
+		      <th scope="col">#</th>
 		      <th scope="col">Matricula</th>
 		      <th scope="col">Nombre</th>
 		      <th scope="col">Telefono</th>
@@ -54,18 +55,19 @@
 		    <#if estudiantes?? && (estudiantes?size > 0) >
 		        <#list estudiantes as estudiante>
 		            <tr>
-		                <th scope="row">${estudiante.matricula}</td>
+		                <th scope="row">${estudiante.id}</td>
+		                <td>${estudiante.matricula}</td>
 		                <td>${estudiante.nombre}</td>
 		                <td>${estudiante.telefono}</td>
 		                <td>
-		                	<a href="" class="btn btn-secondary">Editar</a>
-		                	<a href="${'delete/' + estudiante.matricula}" class="btn btn-danger">Eliminar</a>
+		                	<a href="${'estudiante/' + estudiante.id + '/edit'}" class="btn btn-secondary">Editar</a>
+		                	<a href="${'estudiante/delete/' + estudiante.id}" class="btn btn-danger">Eliminar</a>
 	                	</td>
 		            </tr>
 		        </#list>
 	        <#else>
 	        	<tr>
-	                <td colspan="4">No existen registros</td>
+	                <td colspan="5">No existen registros</td>
 	            </tr>
 	        </#if>
 	        
