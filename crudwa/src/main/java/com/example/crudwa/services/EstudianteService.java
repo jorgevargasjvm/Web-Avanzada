@@ -33,8 +33,7 @@ public class EstudianteService implements IEstudianteService {
 
 	@Override
 	public void deleteEstudiante(Long matricula) {
-		// TODO Auto-generated method stub
-		
+		repository.deleteById(matricula);
 	}
 
 	@Override
